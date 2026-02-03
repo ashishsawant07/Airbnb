@@ -1,0 +1,207 @@
+body{
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* NAVBAR */
+/* .navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.logo{
+    color: #ff385c;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.nav-search{
+    display: flex;
+    border: 1px solid #ddd;
+    border-radius: 30px;
+    padding: 5px;
+}
+
+.nav-search input{
+    border: none;
+    outline: none;
+    padding: 8px;
+}
+
+.nav-search button{
+    border: none;
+    background: #ff385c;
+    color: white;
+    border-radius: 50%;
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+.login{
+    background: none;
+    border: 1px solid #ddd;
+    padding: 8px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+} */
+
+
+/* SEARCH BAR - Airbnb Style */
+.nav-search{
+    display: flex;
+    align-items: center;
+    border: 1px solid #ddd;
+    border-radius: 40px;
+    padding: 8px 10px;
+    gap: 10px;
+    background: white;
+}
+.logo{
+    
+    /* color: #ff385c; */
+    height: 60px;
+}
+.search-item{
+    padding: 5px 15px;
+    cursor: pointer;
+}
+
+.search-item:not(:last-child){
+    border-right: 1px solid #ddd;
+}
+
+.label{
+    font-size: 12px;
+    font-weight: bold;
+    color: #222;
+}
+
+.value{
+    font-size: 14px;
+    color: gray;
+}
+
+.search-btn{
+    background: #ff385c;
+    color: white;
+    padding: 10px 14px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* HERO */
+.hero{
+    background-image: url("https://wallpapercave.com/wp/wp1854190.jpg");
+    height: 450px;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-content{
+    color: white;
+    text-align: center;
+    background: rgba(0,0,0,0.4);
+    padding: 30px;
+    border-radius: 10px;
+}
+
+/* CARDS */
+.cards{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 40px;
+}
+
+.card{
+    width: 250px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.card img{
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.card h3{
+    margin: 10px;
+}
+
+.card p{
+    margin: 10px;
+    color: gray;
+}
+.footer {
+    background-color: #fff;
+    border-top: 1px solid #ddd;
+    font-family: Arial, sans-serif;
+    padding: 40px 80px 20px;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.footer-col {
+    width: 30%;
+}
+
+.footer-col h4 {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-col ul li {
+    margin-bottom: 10px;
+}
+
+.footer-col ul li a {
+    text-decoration: none;
+    color: #222;
+    font-size: 14px;
+}
+
+.footer-col ul li a:hover {
+    text-decoration: underline;
+}
+
+.footer-bottom {
+    border-top: 1px solid #ddd;
+    margin-top: 30px;
+    padding-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    font-size: 14px;
+}
+
+.footer-links a {
+    margin: 0 10px;
+    color: #222;
+    text-decoration: none;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+.footer-lang span {
+    margin-left: 15px;
+}

@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Airbnb Navbar</title>
+
+
+<style>
+body{
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+#navbar{
+    
+    background: rgb(255, 254, 254); */
+     padding: 15px 40px 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    width: 100%;
+    height: 100%;
+}
+.nav-top{
+    display: flex;
+    align-items: center;
+}
+
+.logo img{
+    height: 40px;
+}
+
+.navlist{
+    list-style: none;
+    display: flex;
+    gap: 40px;
+    margin-left: 40px;
+    padding: 0;
+}
+
+.listhead h1{
+    color: white;
+    font-size: 18px;
+    margin: 0;
+    cursor: pointer;
+}
+
+.listhead:hover{
+    border-bottom: 3px solid #ff385c;
+}
+
+.nav-right{
+    margin-left: auto;
+    display: flex;
+    gap: 15px;
+}
+.menu-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px 15px;
+}
+
+.menu-btn img {
+    width: 50px;
+    height: 50px;
+}
+.login-btn,
+.add-btn{
+    height: 40px;
+    padding: 0px 22px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+ margin-top: 16px;
+}
+
+
+.nav-search{
+    display: flex;
+    justify-content: center;
+}
+
+.search-container{
+    background: white;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 10px 18px;
+    border-radius: 40px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+}
+
+.search-item{
+    display: flex;
+    flex-direction: column;
+}
+
+.label{
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.search-item input{
+    border: none;
+    outline: none;
+    font-size: 14px;
+}
+
+.divider{
+    width: 1px;
+    height: 32px;
+    background: #ddd;
+}
+
+.search-btn{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #ff385c;
+    color: white;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+
+}
+.property-container {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr); 
+    gap: 15px; 
+    padding: 20px 40px;
+}
+
+.card {
+    width: 100%; 
+    cursor: pointer;
+}
+
+.image-box {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.image-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+}
+
+.badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: white;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+
+.wishlist-btn{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+
+    background: none;
+    border: 1px solid gray;
+    border-radius: 60%;
+
+    font-size: 22px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.wishlist-btn.active{
+    color: #ff385c;       
+}
+
+
+.card-info h4 {
+  margin: 10px 0 5px 0;
+  font-size: 16px;
+}
+
+.card-info .price {
+  color: #555;
+  font-size: 14px;
+}
+.footer {
+    background-color: #fff;
+    border-top: 1px solid #ddd;
+    font-family: Arial, sans-serif;
+    padding: 40px 80px 20px;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.footer-col {
+    width: 30%;
+}
+
+.footer-col h4 {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-col ul li {
+    margin-bottom: 10px;
+}
+
+.footer-col ul li a {
+    text-decoration: none;
+    color: #222;
+    font-size: 14px;
+}
+
+.footer-col ul li a:hover {
+    text-decoration: underline;
+}
+
+.footer-bottom {
+    border-top: 1px solid #ddd;
+    margin-top: 30px;
+    padding-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    font-size: 14px;
+}
+
+.footer-links a {
+    margin: 0 10px;
+    color: #222;
+    text-decoration: none;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+.footer-lang span {
+    margin-left: 15px;
+}
+</style>
+</head>
+
+<body>
+
+<div id="navbar">
+
+    <div class="nav-top">
+        <div class="logo">
+            <img src="https://logos-world.net/wp-content/uploads/2020/07/Airbnb-Logo.png">
+        </div>
+
+        <ol class="navlist">
+            <li class="listhead"><h1><a href="home.html">Homes</a></h1></li>
+            <li class="listhead"><h1><a href="service.html">Services</a></h1></li>
+           <li class="listhead"><h1><a href="experince.html">Experiences</a></h1></li>
+        </ol>
+
+        <div class="nav-right">
+            <button class="login-btn">Login</button>
+             <button class="menu-btn">
+             <img src="https://static.vecteezy.com/system/resources/previews/017/217/747/original/menu-button-icon-sign-png.png" alt="Menu" />
+            </button>
+
+        </div>
+    </div>
+ 
+    <div class="nav-search">
+        <div class="search-container">
+
+            <div class="search-item">
+                <span class="label">Where</span>
+                <input type="text" placeholder="Search destinations">
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="search-item">
+                <span class="label">When</span>
+                <input type="text" placeholder="Add dates">
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="search-item">
+                <span class="label">Who</span>
+                <input type="text" placeholder="Add guests">
+            </div>
+
+            <button class="search-btn">🔍</button>
+
+        </div>
+    </div>
+
+</div>
+<div class="property-container">
+  <div class="card">
+    <div class="image-box">
+      <img src="https://images.livspace-cdn.com/w:1440/dpr:3/plain/https://d3gq2merok8n5r.cloudfront.net/abhinav/ond-1634120396-Obfdc/amj-2023-1678081565-AJpiy/homes-by-livpsace-1683532468-qNpfz/ht-in-ki-0038-1686309021-ISYwS/2-1686309047-vkPnP.jpg" alt="Flat">
+      <!-- <span class="badge">Guest favourite</span> -->
+      <button class="wishlist-btn">🤍</button>
+      
+
+     
+    </div>
+    <div class="card-info">
+      <h4>Flat in Pune City</h4>
+      <p class="price">₹4,074 for 2 nights</p>
+      <!-- <p class="rating">★ 5.0</p> -->
+    </div>
+   
+  </div>
+  <div class="card">
+    <div class="image-box">
+      <img src="https://d3gq2merok8n5r.cloudfront.net/abhinav/ond-1634120396-Obfdc/amj-2023-1678081565-AJpiy/homes-by-livpsace-1683532468-qNpfz/ht-in-ki-0008-1683532913-suTNC/4-1683532933-5TlWI.jpg" alt="Flat">
+      
+      <button class="wishlist-btn">🤍</button>
+    </div>
+    <div class="card-info">
+      <h4>Flat in Pune City</h4>
+      <p class="price">₹4,074 for 2 nights</p>
+      
+    </div>
+   
+  </div>
+  <div class="card">
+    <div class="image-box">
+      <img src="https://images.livspace-cdn.com/w:1440/q:100/plain/https://d3gq2merok8n5r.cloudfront.net/abhinav/ond-1634120396-Obfdc/amj-2023-1678081565-AJpiy/homes-by-livpsace-1683532468-qNpfz/ht-in-ki-0008-1683532913-suTNC/11-1683532953-beC19.jpg" alt="Flat">
+     
+      <button class="wishlist-btn">🤍</button>
+    </div>
+    <div class="card-info">
+      <h4>Flat in Pune City</h4>
+      <p class="price">₹4,074 for 2 nights</p>
+      
+    </div>
+   
+  </div>
+  <div class="card">
+    <div class="image-box">
+      <img src="https://tse3.mm.bing.net/th/id/OIP.wyjT4uD6vMhe_LZxbtro9wHaEC?pid=Api&P=0&h=180" alt="Flat">
+     
+     <button class="wishlist-btn">🤍</button>
+    </div>
+    <div class="card-info">
+      <h4>Flat in Pune City</h4>
+      <p class="price">₹4,074 for 2 nights</p>
+      
+    </div>
+   
+  </div>
+  <div class="card">
+    <div class="image-box">
+      <img src="https://images.livspace-cdn.com/w:1440/q:100/plain/https://d3gq2merok8n5r.cloudfront.net/abhinav/ond-1634120396-Obfdc/amj-2023-1678081565-AJpiy/homes-by-livpsace-1683532468-qNpfz/ht-in-ki-0007-1683532847-pzeq7/10-1683532883-5mBtx.jpg" alt="Flat">
+      
+      <button class="wishlist-btn">🤍</button>
+    </div>
+    <div class="card-info">
+      <h4>Flat in Pune City</h4>
+      <p class="price">₹4,074 for 2 nights</p>
+      
+    </div>
+   
+  </div>
+  <div class="card">
+    <div class="image-box">
+      <img src="https://images.livspace-cdn.com/w:750/plain/https://d3gq2merok8n5r.cloudfront.net/abhinav/1real-homes-in-1669021353-jiSjM/ond-2022-1669032781-pWI47/false-ceiling-1669800072-UXCnt/d-infc-ond2022-2335-1669811892-Q4YU2/39-1-1669811922-EeM63.jpg" alt="Flat">
+      
+      <button class="wishlist-btn">🤍</button>
+    </div>
+    <div class="card-info">
+      <h4>Flat in Pune City</h4>
+      <p class="price">₹4,074 for 2 nights</p>
+      
+    </div>
+   
+  </div>
+  <div class="card">
+    <div class="image-box">
+      <img src="https://www.truoba.com/wp-content/uploads/2019/06/Truoba-Mini-219-house-porch.jpg" alt="Flat">
+      
+      <button class="wishlist-btn">🤍</button>
+    </div>
+    <div class="card-info">
+      <h4>Guest house in Pune City</h4>
+      <p class="price">₹4,074 for 2 nights</p>
+      
+    </div>
+   
+  </div>
+  <div class="card">
+    <div class="image-box">
+      <img src="https://miro.medium.com/v2/resize:fit:1358/1*EcgAJaGP2UuA0fwJ1zPKow.jpeg" alt="Flat">
+      
+      <button class="wishlist-btn">🤍</button>
+    </div>
+    <div class="card-info">
+      <h4>Guest house in Pune City</h4>
+      <p class="price">₹4,074 for 2 nights</p>
+      
+    </div>
+   
+  </div>
+  <div class="card">
+    <div class="image-box">
+      <img src="https://na.rdcpix.com/314506565/8ecb8b5c10a19ccbe1daba7bc38ec77cw-c303837rd-w832_h468_r4_q80.jpg" alt="Flat">
+     
+      <button class="wishlist-btn">🤍</button>
+    </div>
+    <div class="card-info">
+      <h4>Guest house in Pune City</h4>
+      <p class="price">₹4,074 for 2 nights</p>
+     
+    </div>
+   
+  </div>
+  <div class="card">
+    <div class="image-box">
+      <img src="https://i.ytimg.com/vi/IGkSRKdVi1Y/maxresdefault.jpg" alt="Flat">
+      
+      <button class="wishlist-btn">🤍</button>
+    </div>
+    <div class="card-info">
+      <h4>Guest house in Pune City</h4>
+      <p class="price">₹4,074 for 2 nights</p>
+      
+    </div>
+  </div>
+   <div class="card">
+    <div class="image-box">
+      <img src="https://pix10.agoda.net/hotelImages/1020851/-1/d7a7a21c55aacd3a9d319907f93a9974.jpg?s=1024x768" alt="Flat">
+      
+      <button class="wishlist-btn">🤍</button>
+    </div>
+    <div class="card-info">
+      <h4>Guest house in Pune City</h4>
+      <p class="price">₹4,074 for 2 nights</p>
+      
+    </div>
+ 
+  </div>
+   <div class="card">
+    <div class="image-box">
+      <img src="https://tse4.mm.bing.net/th/id/OIP.cWcYXuT4KAagZVd6XsspDwHaEK?pid=Api&P=0&h=180" alt="Flat">
+       
+     <button class="wishlist-btn">🤍</button>
+    </div>
+    <div class="card-info">
+      <h4>Guest house in Pune City</h4>
+      <p class="price">₹4,074 for 2 nights</p>
+      
+    </div>
+    
+  </div>
+  </div>
+ <script>
+    const wishlistButtons = document.querySelectorAll(".wishlist-btn");
+
+    wishlistButtons.forEach(btn => {
+        btn.addEventListener("click", () => {
+            if (btn.innerText === "🤍") {
+                btn.innerText = "❤️";
+            } else {
+                btn.innerText = "🤍";
+            }
+        });
+    });
+</script>
+
+
+  <footer class="footer">
+    <div class="footer-container">
+
+     
+        <div class="footer-col">
+            <h4>Support</h4>
+            <ul>
+                <li><a href="#">Help Centre</a></li>
+                <li><a href="#">Get help with a safety issue</a></li>
+                <li><a href="#">AirCover</a></li>
+                <li><a href="#">Anti-discrimination</a></li>
+                <li><a href="#">Disability support</a></li>
+                <li><a href="#">Cancellation options</a></li>
+                <li><a href="#">Report neighbourhood concern</a></li>
+            </ul>
+        </div>
+
+  
+        <div class="footer-col">
+            <h4>Hosting</h4>
+            <ul>
+                <li><a href="#">Airbnb your home</a></li>
+                <li><a href="#">Airbnb your experience</a></li>
+                <li><a href="#">Airbnb your service</a></li>
+                <li><a href="#">AirCover for Hosts</a></li>
+                <li><a href="#">Hosting resources</a></li>
+                <li><a href="#">Community forum</a></li>
+                <li><a href="#">Hosting responsibly</a></li>
+                <li><a href="#">Join a free hosting class</a></li>
+                <li><a href="#">Find a co-host</a></li>
+                <li><a href="#">Refer a host</a></li>
+            </ul>
+        </div>
+
+  
+        <div class="footer-col">
+            <h4>Airbnb</h4>
+            <ul>
+                <li><a href="#">2025 Summer Release</a></li>
+                <li><a href="#">Newsroom</a></li>
+                <li><a href="#">Careers</a></li>
+                <li><a href="#">Investors</a></li>
+                <li><a href="#">Airbnb.org emergency stays</a></li>
+            </ul>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        <p>© 2026 Airbnb, Inc.</p>
+        <div class="footer-links">
+            <a href="#">Privacy</a>
+            <a href="#">Terms</a>
+            <a href="#">Company details</a>
+        </div>
+        <div class="footer-lang">
+            <span>🌐 English (IN)</span>
+            <span>₹ INR</span>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
