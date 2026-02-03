@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Book Your Stay</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        
+        body {
+            min-height: 100vh;
+            background: url("pic.jpg") no-repeat center/cover;
+        }
+        
+        .booking-container {
+            max-width: 700px;
+            margin: 60px auto;
+            background: rgba(173, 194, 232, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            opacity: 0.9;
+        }
+        
+        .property {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .property img {
+            width: 200px;
+            height: 130px;
+            object-fit: cover;
+            border-radius: 6px;
+        }
+        
+        .booking-container input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 12px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+        }
+        
+        .booking-container button {
+            width: 100%;
+            padding: 10px;
+            background: #f5617c;
+            color: white;
+            border: none;
+            border-radius: 6px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="booking-container">
+        <h2>Confirm Your Booking</h2>
+
+        <!-- <div class="property">
+            <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945">
+            <div>
+                <h3>Sea View Hotel</h3>
+                <p>Goa</p>
+                <p><b>₹3500 / night</b></p>
+            </div>
+        </div> -->
+
+        <input type="text" placeholder="Full Name">
+        <input type="email" placeholder="Email">
+        <input type="tel" placeholder="Mobile">
+        <input type="date">
+
+        <button>Confirm Booking</button>
+    </div>
+
+</body>
+
+</html>

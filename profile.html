@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Profile | Room Booking</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        
+        body {
+            background: #fff;
+            color: #111;
+        }
+        
+        .layout {
+            display: grid;
+            grid-template-columns: 280px 1fr 360px;
+            min-height: 100vh;
+        }
+        
+        .sidebar {
+            border-right: 1px solid #eee;
+            padding: 28px 18px;
+        }
+        
+        .sidebar h1 {
+            font-size: 40px;
+            margin-bottom: 18px;
+        }
+        
+        .nav a {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            padding: 14px;
+            border-radius: 14px;
+            text-decoration: none;
+            color: #111;
+            font-size: 18px;
+        }
+        
+        .nav a.active {
+            background: #f2f2f2;
+        }
+        
+        .icon {
+            width: 34px;
+            height: 34px;
+            display: grid;
+            place-items: center;
+            border-radius: 10px;
+        }
+        
+        .main {
+            padding: 34px 40px;
+        }
+        
+        .main-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 18px;
+        }
+        
+        .main-top h2 {
+            font-size: 44px;
+        }
+        
+        .btn {
+            background: #f2f2f2;
+            border: none;
+            padding: 10px 14px;
+            border-radius: 12px;
+            cursor: pointer;
+            font-weight: 700;
+        }
+        
+        .card {
+            max-width: 680px;
+            border: 1px solid #eee;
+            border-radius: 22px;
+            padding: 28px;
+            box-shadow: 0 14px 30px rgba(0, 0, 0, 0.06);
+        }
+        
+        .row {
+            display: flex;
+            gap: 18px;
+            align-items: center;
+        }
+        
+        .avatar {
+            width: 92px;
+            height: 92px;
+            border-radius: 50%;
+            background: #222;
+            color: #fff;
+            display: grid;
+            place-items: center;
+            font-size: 42px;
+            font-weight: 800;
+        }
+        
+        .name {
+            font-size: 34px;
+            font-weight: 800;
+        }
+        
+        .role {
+            font-size: 14px;
+            color: #666;
+        }
+        
+        .grid {
+            margin-top: 18px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px 16px;
+        }
+        
+        .field {
+            background: #fafafa;
+            border: 1px solid #eee;
+            padding: 12px;
+            border-radius: 12px;
+        }
+        
+        .label {
+            font-size: 12px;
+            color: #666;
+            margin-bottom: 6px;
+        }
+        
+        .value {
+            font-size: 15px;
+            font-weight: 700;
+        }
+        
+        .right {
+            border-left: 1px solid #eee;
+            padding: 34px 22px;
+        }
+        
+        .right h3 {
+            font-size: 34px;
+            margin-bottom: 10px;
+        }
+        
+        .right p {
+            color: #666;
+            line-height: 1.5;
+            margin-bottom: 18px;
+        }
+        
+        .cta {
+            display: inline-block;
+            background: #ff385c;
+            color: #fff;
+            text-decoration: none;
+            padding: 12px 18px;
+            border-radius: 14px;
+            font-weight: 800;
+        }
+        
+        .modal-bg {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.45);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 18px;
+        }
+        
+        .modal {
+            width: min(720px, 100%);
+            background: #fff;
+            border-radius: 18px;
+            padding: 18px;
+        }
+        
+        .mhead {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .close {
+            border: none;
+            background: #f2f2f2;
+            padding: 8px 10px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        
+        .form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+        
+        .form input,
+        .form textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+        }
+        
+        .form textarea {
+            grid-column: 1/-1;
+            min-height: 90px;
+            resize: vertical;
+        }
+        
+        .actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+            margin-top: 12px;
+        }
+        
+        .primary {
+            background: #ff385c;
+            color: #fff;
+            border: none;
+            padding: 10px 14px;
+            border-radius: 12px;
+            cursor: pointer;
+            font-weight: 800;
+        }
+        
+        .ghost {
+            background: #f2f2f2;
+            border: none;
+            padding: 10px 14px;
+            border-radius: 12px;
+            cursor: pointer;
+            font-weight: 800;
+        }
+        
+        @media (max-width:1100px) {
+            .layout {
+                grid-template-columns: 260px 1fr;
+            }
+            .right {
+                display: none;
+            }
+        }
+        
+        @media (max-width:780px) {
+            .layout {
+                grid-template-columns: 1fr;
+            }
+            .sidebar {
+                border-right: none;
+                border-bottom: 1px solid #eee;
+            }
+            .main {
+                padding: 22px 18px;
+            }
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="layout">
+
+        <aside class="sidebar">
+            <h1>Profile</h1>
+            <div class="nav">
+                <a class="active" href="profile.html"><span class="icon" style="background:#111;color:#fff;border-radius:50%;">M</span>About me</a>
+                <a href="index.html"><span class="icon">🏠</span>Home</a>
+                <a href="booking.html"><span class="icon">🧾</span>Booking</a>
+            </div>
+        </aside>
+
+        <main class="main">
+            <div class="main-top">
+                <h2>About me</h2>
+                <button class="btn" id="editBtn">Edit</button>
+            </div>
+
+            <div class="card">
+                <div class="row">
+                    <div class="avatar" id="avatarLetter">U</div>
+                    <div>
+                        <div class="name" id="displayName">User</div>
+                        <div class="role" id="displayRole">Guest</div>
+                    </div>
+                </div>
+
+                <div class="grid">
+                    <div class="field">
+                        <div class="label">Email</div>
+                        <div class="value" id="emailText">—</div>
+                    </div>
+                    <div class="field">
+                        <div class="label">Phone</div>
+                        <div class="value" id="phoneText">—</div>
+                    </div>
+                    <div class="field">
+                        <div class="label">City</div>
+                        <div class="value" id="cityText">—</div>
+                    </div>
+                    <div class="field">
+                        <div class="label">DOB</div>
+                        <div class="value" id="dobText">—</div>
+                    </div>
+                    <div class="field" style="grid-column:1/-1;">
+                        <div class="label">Bio</div>
+                        <div class="value" id="bioText">—</div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <aside class="right">
+            <h3>Complete your profile</h3>
+            <p>Your profile is an important part of every reservation. Create yours to help hosts and guests get to know you.</p>
+            <a class="cta" href="#" id="getStartedBtn">Get started</a>
+        </aside>
+
+    </div>
+
+    <div class="modal-bg" id="modal">
+        <div class="modal">
+            <div class="mhead">
+                <h3>Edit profile</h3>
+                <button class="close" id="closeBtn">✕</button>
+            </div>
+
+            <form id="profileForm">
+                <div class="form">
+                    <input id="firstName" placeholder="First name">
+                    <input id="lastName" placeholder="Last name">
+                    <input id="email" placeholder="Email">
+                    <input id="phone" placeholder="Phone">
+                    <input id="city" placeholder="City">
+                    <input id="dob" type="date">
+                    <textarea id="bio" placeholder="Write something about you..."></textarea>
+                </div>
+
+                <div class="actions">
+                    <button type="button" class="ghost" id="cancelBtn">Cancel</button>
+                    <button type="submit" class="primary">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+        if (!currentUser) window.location.href = "login.html";
+
+        function safe(v) {
+            return v && String(v).trim() ? String(v).trim() : "—";
+        }
+
+        function nameOf(u) {
+            const n = ((u.firstName || "") + " " + (u.lastName || "")).trim();
+            return n || (u.email ? u.email.split("@")[0] : "User");
+        }
+
+        function render(u) {
+            const nm = nameOf(u);
+            document.getElementById("displayName").innerText = nm;
+            document.getElementById("displayRole").innerText = u.role || "Guest";
+            document.getElementById("avatarLetter").innerText = (nm[0] || "U").toUpperCase();
+
+            document.getElementById("emailText").innerText = safe(u.email);
+            document.getElementById("phoneText").innerText = safe(u.phone);
+            document.getElementById("cityText").innerText = safe(u.city);
+            document.getElementById("dobText").innerText = safe(u.dob);
+            document.getElementById("bioText").innerText = safe(u.bio);
+        }
+
+        render(currentUser);
+
+        // modal
+        const modal = document.getElementById("modal");
+        const editBtn = document.getElementById("editBtn");
+        const closeBtn = document.getElementById("closeBtn");
+        const cancelBtn = document.getElementById("cancelBtn");
+        const getStartedBtn = document.getElementById("getStartedBtn");
+
+        function openModal() {
+            document.getElementById("firstName").value = currentUser.firstName || "";
+            document.getElementById("lastName").value = currentUser.lastName || "";
+            document.getElementById("email").value = currentUser.email || "";
+            document.getElementById("phone").value = currentUser.phone || "";
+            document.getElementById("city").value = currentUser.city || "";
+            document.getElementById("dob").value = currentUser.dob || "";
+            document.getElementById("bio").value = currentUser.bio || "";
+            modal.style.display = "flex";
+        }
+
+        function closeModal() {
+            modal.style.display = "none";
+        }
+
+        editBtn.addEventListener("click", openModal);
+        getStartedBtn.addEventListener("click", (e) => {
+            e.preventDefault();
+            openModal();
+        });
+        closeBtn.addEventListener("click", closeModal);
+        cancelBtn.addEventListener("click", closeModal);
+
+        document.getElementById("profileForm").addEventListener("submit", function(e) {
+            e.preventDefault();
+
+            const updated = {
+                ...currentUser,
+                firstName: document.getElementById("firstName").value.trim(),
+                lastName: document.getElementById("lastName").value.trim(),
+                email: document.getElementById("email").value.trim().toLowerCase(),
+                phone: document.getElementById("phone").value.trim(),
+                city: document.getElementById("city").value.trim(),
+                dob: document.getElementById("dob").value,
+                bio: document.getElementById("bio").value.trim(),
+                role: currentUser.role || "Guest"
+            };
+
+            // update session
+            localStorage.setItem("currentUser", JSON.stringify(updated));
+
+            // update users list
+            let users = JSON.parse(localStorage.getItem("users")) || [];
+            users = users.map(u => u.email === currentUser.email ? updated : u);
+            localStorage.setItem("users", JSON.stringify(users));
+
+            Object.assign(currentUser, updated);
+            render(updated);
+
+            alert("Profile updated!");
+            closeModal();
+        });
+    </script>
+</body>
+
+</html>
